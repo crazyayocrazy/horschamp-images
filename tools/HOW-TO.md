@@ -28,6 +28,19 @@
 - order は既存の最大+1。同じ作品はリールとカルーセルを同じ日にそろえる。
 - キャプション：ネタバレなし3行＋ハッシュタグ10個前後（#映画紹介 #おすすめ映画 #水彩画 #HorsChamp など）。リールは短めに「詳しい紹介は今夜の投稿で。」
 
-## 画像プロンプトを作るとき
-各作品ブロックの2行目に必ず STYLE 行（white watercolor paper, ink lines, ONLY accent color = 指定色, NOT digital painting…）を入れる。
-構図は後ろ姿で奥へ歩く・横一列の後ろ姿・半分余白を使わず、5枚すべてちがう構図に。結末の場面は描かない。
+## 画像プロンプトを作るとき（必ずこの形、全部英語、1作品＝1つのコードブロック）
+ユーザーはChatGPTの新しいチャットに参考画像2枚を添付して、このブロックを貼る。
+```
+『映画名』
+Generate 5 SEPARATE images, one image per message, each vertical 4:5. Never combine them into one collage or grid.
+The 2 attached images are STYLE references only: copy the line work, watercolor bleeding and paper texture. Do NOT copy their colors, people or compositions.
+STYLE (apply to all 5): hand-drawn watercolor and ink sketch on textured white watercolor paper. Loose black ink lines that overshoot, soft bleeding washes, edges fading into blank white paper with small ink splatters. Mostly ink grays; the ONLY accent color is [指定色], used sparingly. Lots of white paper visible. NOT digital painting, NOT photorealistic, NOT glossy, no full-color background. No text. Original faces.
+1. ...（1枚目の最後に calm white space at the top）
+2. ...
+3. ...
+4. ...
+5. ...（最後に calm white space at the bottom）
+```
+- 構図：後ろ姿で奥へ歩く・横一列の後ろ姿・半分余白は使わない。5枚すべてちがう構図（手元アップ、俯瞰、ローアングル、横顔、正面、室内の広い画、ガラス越しは1枚まで）。
+- 結末・終盤の場面は描かない。原作キャラの顔に似せない。
+- 指定色は過去作とかぶらない色（使用済み：SATCピンク、鬼滅・湯を沸かすの赤、ITの紺、ピエロの蛍光グリーン、ラ・ラ・ランドの紫、プラダのセルリアンブルー、ジョーカーのくすんだオレンジ、ホーム・アローンの深緑、ショーシャンクのセピア）。
