@@ -33,6 +33,7 @@
 ```
 『映画名』
 Generate 5 SEPARATE images, one image per message, each vertical 4:5. Never combine them into one collage or grid.
+Generate all 5 back to back without stopping. Do NOT ask for confirmation, approval or feedback between images, and do not ask any questions. Just finish all 5.
 The 2 attached images are STYLE references only: copy the line work, watercolor bleeding and paper texture. Do NOT copy their colors, people or compositions.
 STYLE (apply to all 5): hand-drawn watercolor and ink sketch on textured white watercolor paper. Loose black ink lines that overshoot, soft bleeding washes, edges fading into blank white paper with small ink splatters. Mostly ink grays; the ONLY accent color is [指定色], used sparingly. Lots of white paper visible. NOT digital painting, NOT photorealistic, NOT glossy, no full-color background. No text. Original faces.
 1. ...（1枚目の最後に calm white space at the top）
