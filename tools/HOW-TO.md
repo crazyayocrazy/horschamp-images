@@ -14,7 +14,7 @@
 
 ## 2. リール
 - `python3 tools/reel.py spec.json <effect> out.mp4`
-  - effect: petals（花びら）/ snow（雪）/ rain（雨）/ steam（湯気）/ digital（緑の光）/ dust（光の粒）。作品の空気に合うものを選ぶ。
+  - effect: petals（花びら）/ snow（雪）/ rain（雨）/ steam（湯気）/ digital（緑の光）/ dust（光の粒）/ sand（横に吹く砂）。作品の空気に合うものを選ぶ。
   - 元画像（文字なし）を使い、文字は上部に入る。
 
 ## 3. アップロード

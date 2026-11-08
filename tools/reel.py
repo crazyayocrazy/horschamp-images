@@ -1,6 +1,6 @@
 """Make a 9:16 Instagram reel from a carousel spec: slow zoom + ambient particles + text.
 usage: python3 reel.py spec.json effect out.mp4
-effect: petals | snow | rain | steam | digital | dust
+effect: petals | snow | rain | steam | digital | dust | sand
 """
 import sys, json, math, random, subprocess
 import numpy as np
@@ -31,9 +31,9 @@ srcs = [Image.open(s["src"]).convert("RGB") for s in slides]
 paper = tuple(int(v) for v in np.asarray(srcs[0])[:40, :40].reshape(-1, 3).mean(0))
 
 COLORS = {"petals": (236, 170, 178), "snow": (255, 255, 255), "rain": (200, 212, 226),
-          "steam": (255, 255, 255), "digital": (150, 235, 120), "dust": (255, 244, 220)}
+          "steam": (255, 255, 255), "digital": (150, 235, 120), "dust": (255, 244, 220), "sand": (214, 128, 62)}
 rng = random.Random(7)
-N = {"petals": 38, "snow": 120, "rain": 140, "steam": 18, "digital": 60, "dust": 50}[effect]
+N = {"petals": 38, "snow": 120, "rain": 140, "steam": 18, "digital": 60, "dust": 50, "sand": 110}[effect]
 parts = [dict(x=rng.uniform(0, W), y=rng.uniform(0, H), s=rng.uniform(0.5, 1.4),
               ph=rng.uniform(0, 6.28), sp=rng.uniform(0.6, 1.4)) for _ in range(N)]
 
@@ -65,6 +65,10 @@ def particles(t):
             on = math.sin(t * 6 * p["sp"] + p["ph"]) > 0
             if on:
                 s = 7 * p["s"]; d.rectangle([p["x"], y, p["x"] + s, y + s], fill=c + (170,))
+        elif effect == "sand":
+            x = (p["x"] + t * 620 * p["sp"]) % (W + 80) - 40
+            y = (p["y"] + math.sin(t * 1.7 + p["ph"]) * 26 - t * 30 * p["sp"]) % H
+            L = 26 * p["s"]; d.line([x, y, x + L, y - L * 0.22], fill=c + (120,), width=2)
         else:
             y = (p["y"] - t * 25 * p["sp"]) % H
             x = (p["x"] + math.sin(t + p["ph"]) * 20) % W
